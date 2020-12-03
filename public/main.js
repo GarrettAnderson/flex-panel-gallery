@@ -25,20 +25,61 @@ console.log(panels)
 //   })
 // })
 
-
   for (i = 0; i < panels.length; i++) {
 
-    console.log(panels[i].classList.contains('open'))
-
+    console.log(panels[i])
+    panels[i].classList.remove('open')
     // if (panels[i].classList.contains('open')) {
     //   panels[i].classList.add('open')
     // }
 
     panels[i].addEventListener('click', function(e) {
-      console.log(i - 1)
+
+    // panels[i].addEventListener('transitioned', function(){
+    //             console.log(this)
+    //             this.classList.remove('open')
+    // })
+
+    panels.forEach((option, i) => {
+        console.log('forEach loop')
+        console.log(option)
+        console.log(i)
+
+        let data = this.getAttribute('data-item')
+        console.log(data)
+
+        if (i !== data) {
+          console.log('add open styles')
+          this.classList.toggle('open')
+          this.classList.toggle('open-active')
+        } else if (i !== data && option.classList.contains('open')) {
+          console.log('remove open styles')
+        }
+        // function transition(e){
+        //     console.log(e)
+        //     // this.classList.toggle('open')
+        // }
+        //
+        // option.addEventListener('transitioned', transition)
+      })
+
+      console.log(i)
       console.log(this)
       console.log(e)
 
+      // let current = (i)
+      // console.log(current - 1)
+      //
+      // if ( (current - 1) == data) {
+      //     console.log('horray')
+      //     this.classList.add('open')
+      //     this.classList.add('open-active')
+      //   }
+      // } else if (current !== data) {
+      //   console.log('shucks')
+      //   this.classList.remove('open')
+      //   this.classList.remove('open-active')
+      // }
       // let cn = this
       // console.log(this.classList.contains('open'))
       // console.log(this.classList.contains('open-active'))
@@ -52,25 +93,6 @@ console.log(panels)
       //     this.classList.toggle('open')
       //     this.classList.toggle('open-active')
       //   }
-
-      let data = this.getAttribute('data-item')
-      console.log(data)
-
-      let current = (i - 1)
-
-      if (!current !== data) {
-        console.log('open current panel and remove open class on all other panel elements')
-
-        this.classList.add('open')
-        this.classList.add('open-active')
-
-      } else if (current !== data && this.classList.contains('open')){
-        console.log('condition not met')
-        console.log(this)
-        this.classList.remove('open')
-        this.classList.remove('open-active')
-      }
-
     })
   }
 
@@ -118,7 +140,7 @@ console.log(panels)
 
 
 // const panels = document.querySelectorAll('.panel')
-//
+
 // function toggleOpen() {
 //   this.classList.toggle('open')
 // }
