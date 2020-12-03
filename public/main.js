@@ -1,10 +1,31 @@
-
 /* ==========================
       GARRETT ANSWER
    ========================== */
 
+let panels = Array.from(document.querySelectorAll('.panel'))
+
+console.log(panels)
+
+panels.map(panel => {
+  console.log(panel)
+
+  panel.addEventListener('click', function(e) {
+    console.log('panel clicked')
+  })
+
+})
 
 
+// panel.addEventListener('click', (e) => {
+//   console.log('clicked panel')
+//   // console.log(this)
+//   panel.classList.add('open')
+//
+// })
+//
+// function panelClicked() {
+//   console.log('panel clicked')
+// }
 
 
 
